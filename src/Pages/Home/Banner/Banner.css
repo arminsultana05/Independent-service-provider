@@ -1,0 +1,8 @@
+.banner{
+    background: url(../../../images//banner2.png);
+    height: 400px;
+    background-size: cover;
+    width: 100;
+  margin-bottom: 20px;
+
+}
