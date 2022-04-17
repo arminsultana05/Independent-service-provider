@@ -49,6 +49,23 @@
   .nav > #nav-check {
     display: none;
   }
+  .top-nav{
+    position: sticky;
+  }
+  .Helvetic{
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px;
+
+  }
+  .banner-title{
+    text-align: center;
+    margin: 10px 0px;
+    font-size: large;
+    font-family:cursive;
+  }
+ 
   
   @media (max-width:600px) {
     .nav > .nav-btn {
@@ -94,17 +111,8 @@
       height: calc(100vh - 50px);
       overflow-y: auto;
     }
+    .nav{
+      width: 100%;
+    }
   }
-  .Helvetic{
-    font-weight: bold;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 20px;
-
-  }
-  .banner-title{
-    text-align: center;
-    margin: 10px 0px;
-    font-size: large;
-    font-family:cursive;
-  }
+  

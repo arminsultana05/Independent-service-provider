@@ -1,8 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Service.css'
 
 const Service = ({ service }) => {
-    const { img, name, price } = service;
+    const { img, name, price,id } = service;
+    const navigate=useNavigate()
+    const navigateToServiceDetail =id =>{
+        navigate(`/checkout/${id}`)
+
+    }
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl ">
@@ -13,7 +19,7 @@ const Service = ({ service }) => {
                     <h2 className="card-title">Shoes!</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div className="card-actions">
-                        <button className='button-infg' >Buy Now</button>
+                        <button onClick={()=>navigateToServiceDetail(id)} className='button-infg' >Buy Now</button>
                     </div>
                 </div>
             </div>
