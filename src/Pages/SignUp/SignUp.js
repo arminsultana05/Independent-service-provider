@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from '../../firebase.init';
 
 const SignUp = () => {
@@ -70,6 +72,22 @@ const SignUp = () => {
     if(user|| googleUser ){
         navigate('/')
     }
+    useEffect(() => {
+      const error = hookError || googleError;
+      if(error){
+          switch(error?.code){
+              case "auth/invalid-email":
+                  toast("Invalid email provided, please provide a valid email");
+                  break;
+              
+              case "auth/invalid-password":
+                  toast("Wrong password. Intruder!!")
+                  break;
+              default:
+                  toast("something went wrong")
+          }
+      }
+  }, [hookError, googleError])
 
   
     return (
@@ -112,6 +130,7 @@ const SignUp = () => {
               SignUp
             </button>
           </form>
+          <ToastContainer />
           <p className='redirect'>
            Already have an account?{" "}
             <span onClick={()=>navigate('/login')}>Login</span>

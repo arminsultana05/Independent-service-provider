@@ -9,6 +9,8 @@ import './Login.css'
 const Login = () => {
     const navigate = useNavigate();
     const location =useLocation()
+    const from = location.state?.from?.pathname || "/";
+
     const [userInfo, setUserInfo] = useState({
         email: "",
         password: "",
@@ -32,11 +34,7 @@ const Login = () => {
             setErrors({...errors, email: "Invalid email"})
             setUserInfo({...userInfo, email: ""})
         }
-
-        
-
-       
-    }
+}
     const handlePasswordBlur = (e) => {
         const passwordRegex = /.{6,}/;
         const validPassword = passwordRegex.test(e.target.value);
@@ -48,25 +46,17 @@ const Login = () => {
             setErrors({...errors, password: "Minimum 6 characters!"});
             setUserInfo({...userInfo, password: ""})
         }
-        
-    }
+        }
     const handleLogin = (e) => {
         e.preventDefault();
-
         console.log(userInfo)
-
         signInWithEmail(userInfo.email, userInfo.password);
         
     }
-    const from = location.state?.from?.pathname || "/checkout";
-    useEffect(()=>{
-        if (user) {
-            navigate(from);
-        }
-    },[user])
-    if(googleUser){
-        navigate('/home')
+    if(user || googleUser){
+      navigate(from, {replace: true});
     }
+   
     useEffect(() => {
         const error = hookError || googleError;
         if(error){
@@ -74,8 +64,7 @@ const Login = () => {
                 case "auth/invalid-email":
                     toast("Invalid email provided, please provide a valid email");
                     break;
-                
-                case "auth/invalid-password":
+                   case "auth/invalid-password":
                     toast("Wrong password. Intruder!!")
                     break;
                 default:
