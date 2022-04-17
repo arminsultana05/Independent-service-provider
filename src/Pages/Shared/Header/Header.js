@@ -20,16 +20,12 @@ const Header = () => {
         </div>
         
         <div className="nav-links">
-            {/* <Link to='/'></Link>
+            <Link to='/'></Link>
             <Link to='/home'>Home</Link>
-            <Link>Check Out</Link>
-            <Link>Blogs</Link>
-            <Link>About Me</Link> */}
-          <a href="//github.io/jo_geek" target="_blank">Github</a>
-          <a href="http://stackoverflow.com/users/4084003/" target="_blank">Stackoverflow</a>
-          <a href="https://in.linkedin.com/in/jonesvinothjoseph" target="_blank">LinkedIn</a>
-          <a href="https://codepen.io/jo_Geek/" target="_blank">Codepen</a>
-          <a href="https://jsfiddle.net/user/jo_Geek/" target="_blank">JsFiddle</a>
+            <Link to='/checkout'>Check Out</Link>
+            <Link to='/blogs'>Blogs</Link>
+            <Link to='/about me'>About Me</Link>
+          
         </div>
       </div>
     );
