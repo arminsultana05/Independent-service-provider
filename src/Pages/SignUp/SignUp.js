@@ -1,58 +1,113 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from '../../firebase.init';
 
 const SignUp = () => {
-    const navigate =useNavigate()
+    const [userInfo, setUserInfo] = useState({
+        email:'',
+        password:'',
+        confirmPasswork:'',
+    });
+    const [errors, setErrors] =useState({
+        email:'',
+        password:'',
+        general:'',
+    })
+    const [createUserWithEmailAndPassword, user, loading, hookError] =
+        useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+        const navigate =useNavigate();
+        const location = useLocation();
+    
+        const from = location.state?.from?.pathname || "/";
+
+        useEffect(() => {
+        if (user) {
+            navigate(from);
+        }
+    }, [user]);
+    const handleEmailBlur = (e) => {
+        const emailRegex = /\S+@\S+\.\S+/;
+        const validEmail = emailRegex.test(e.target.value);
+
+        if (validEmail) {
+            setUserInfo({ ...userInfo, email: e.target.value });
+            setErrors({ ...errors, email: "" });
+        } else {
+            setErrors({ ...errors, email: "Invalid email" });
+            setUserInfo({ ...userInfo, email: "" });
+        }
+
+    };
+    const handlePasswordBlur = (e) => {
+        const passwordRegex = /.{6,}/;
+        const validPassword = passwordRegex.test(e.target.value);
+
+        if (validPassword) {
+            setUserInfo({ ...userInfo, password: e.target.value });
+            setErrors({ ...errors, password: "" });
+        } else {
+            setErrors({ ...errors, password: "Minimum 6 characters!" });
+            setUserInfo({ ...userInfo, password: "" });
+        }
+    };
+
+    const handleConfirmPasswordbBlur = (e) => {
+        if (e.target.value === userInfo.password) {
+            setUserInfo({ ...userInfo, confirmPass: e.target.value });
+            setErrors({ ...errors, password: "" });
+        } else {
+            setErrors({ ...errors, password: "Password's don't match" });
+            setUserInfo({ ...userInfo, confirmPass: "" });
+        }
+    };
+    const handleLogin = (e) => {
+        e.preventDefault();
+        console.log(userInfo);
+        createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+    };
+    if(user){
+        navigate('/')
+    }
+  
     return (
         <div className='auth-form-container '>
         <div className='auth-form'>
           <h1 className='text-4xl'>Sign Up</h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className='input-field'>
               <label htmlFor='email'>Email</label>
               <div className='input-wrapper'>
-                <input type='text' name='email'  id='email' />
+                <input onBlur={ handleEmailBlur} type='text' name='email'  id='email' />
               </div>
-              {/* {email.error && (
-                <p className='error'>
-                  <AiOutlineExclamationCircle /> {email.error}
-                </p>
-              )} */}
+              {errors?.email && <p className="error-message">{errors.email}</p>}
             </div>
             <div className='input-field'>
               <label htmlFor='password'>Password</label>
               <div className='input-wrapper'>
                 <input
+                onBlur={handlePasswordBlur}
                   type='password'
-           
-                  name='password'
+                     name='password'
                   id='password'
                 />
               </div>
-              {/* {password.error && (
-                <p className='error'>
-                  <AiOutlineExclamationCircle /> {password.error}
-                </p>
-              )} */}
+              {errors?.password && <p className="error-message">{errors.password}</p>}
             </div>
             <div className='input-field'>
               <label htmlFor='confirm-password'>Confirm Password</label>
               <div className='input-wrapper'>
                 <input
+                onBlur={ handleConfirmPasswordbBlur}
                   type='password'
-           
-                  name='password'
+                name='password'
                   id='password'
                 />
               </div>
-              {/* {password.error && (
-                <p className='error'>
-                  <AiOutlineExclamationCircle /> {password.error}
-                </p>
-              )} */}
-            </div>
+              </div>
+             
             <button type='submit' className='auth-form-submit'>
-              Login
+              SignUp
             </button>
           </form>
           <p className='redirect'>

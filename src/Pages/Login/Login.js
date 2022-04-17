@@ -4,6 +4,7 @@ import './Login.css'
 
 const Login = () => {
     const navigate = useNavigate();
+    
     return (
         <div className='auth-form-container '>
         <div className='auth-form'>
