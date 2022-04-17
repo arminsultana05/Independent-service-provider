@@ -7,17 +7,12 @@
      background-repeat: no-repeat;
      display: flex;
      align-items: center;
-  
-
-
-}
+  }
 .banner img{
   margin-left: 35PX;
-
 }
 .banner-left{
   margin-left: 100PX;
-
 }
 .button-banner{
   background-color: #c44061;
@@ -29,18 +24,23 @@
 @media screen and (max-width:577px) {
   .banner{
     width: 100%;
-      height: 500px;
-      padding-bottom: 20px;
+    height: 500px;
+    padding-bottom: 20px;
     padding-bottom: 50px;
-   
-   
-
-  }
+   }
   .banner img{
-
-   
-  }
+    display: none;
+}
   .banner-left{
     margin-right: 50px;
+  }
+}
+@media screen and (min-width:577px) and (max-width:992px) {
+  .banner{
+    width: 100%;
+  
+  }
+  .banner img{
+    margin-right: 100px;
   }
 }
