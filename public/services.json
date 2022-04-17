@@ -1,44 +1,44 @@
 [
     {
         "id": 1,
-        "name": "ENGINE DIAGNOSTIC",
+        "name": "Social Media Marketing",
         "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "Social media marketing is the use of social media platforms and websites to promote a product or service. Although the terms e-marketing and digital marketing are still dominant in academia.",
         "img": "https://i.ibb.co/85hdjDq/photo1.jpg"
     },
     {
         "id": 2,
-        "name": "WHEEL ALIGNMENT",
+        "name": "Independent Service provider",
         "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description":"Nowadays most of them are independent providers because an independent provider provides services in their own way and in today's society it has become very common for everyone.",
         "img": "https://i.ibb.co/MBL1y78/photo2.jpg"
     },
     {
         "id": 3,
-        "name": "OIL CHANGING",
+        "name": "Stratigy for time management",
         "price": "150",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "The most important thing to achieve success in life is to do time managementPlanning. To-do lists and checklists.Prioritizing.Evaluating urgent tasks.Goal setting.",
         "img": "https://i.ibb.co/Zd4kzH2/photo-3.jpg"
     },
     {
         "id": 4,
-        "name": "BRAKE REPARING",
+        "name": "Facebook Marketing",
         "price": "180",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "SkillBank help you land and a marketing job for no money upfront. An online 15-week career accelerator for paid marketing skills. Part-Time Program. No Hidden Fees. View Events.",
         "img": "https://i.ibb.co/mtxtpmv/photo-4.jpg"
     },
     {
         "id": 5,
-        "name": "WASH AND GLASSING",
+        "name": "Beauty Advisor",
         "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "description": "A beauty advisor, also known as a beauty consultant, is a salesperson who specializes in the financial and material exchange of cosmetics and skin care products between companies.",
         "img": "https://i.ibb.co/VqySZ1T/photo5.jpg"
     },
     {
         "id": 6,
-        "name": "COMPLETE ANALYSIS",
+        "name": "How can achive buisness goal",
         "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "description": "1:Have SMART goals. You're not going to achieve your goals if they aren't SMART 2:Make your goals visible 3:Develop a plan 4:Take action 5:Keep perspective6:Identify potential obstacles",
         "img": "https://i.ibb.co/kHwsRt2/photo6.jpg"
     }
 ]

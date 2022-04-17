@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from '../../firebase.init';
 
 const SignUp = () => {
@@ -16,6 +16,7 @@ const SignUp = () => {
     })
     const [createUserWithEmailAndPassword, user, loading, hookError] =
         useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+        const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
         const navigate =useNavigate();
         const location = useLocation();
     
@@ -66,9 +67,10 @@ const SignUp = () => {
         console.log(userInfo);
         createUserWithEmailAndPassword(userInfo.email, userInfo.password);
     };
-    if(user){
+    if(user|| googleUser ){
         navigate('/')
     }
+
   
     return (
         <div className='auth-form-container '>
@@ -120,7 +122,7 @@ const SignUp = () => {
             <div className='line-right' />
           </div>
           <div className='input-wrapper'>
-            <button className='google-auth' >
+            <button onClick={()=>signInWithGoogle()} className='google-auth' >
               <img  alt='' />
               <p> Continue with Google </p>
             </button>

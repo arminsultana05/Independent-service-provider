@@ -8,8 +8,8 @@ const Services = () => {
     
     return (
         <div>
-            <h1>This is Services: {services.length}</h1>
-           <div className="card-title">
+            <h1 className='text-4xl text-center mt-7'>The services that I provide</h1>
+           <div className="card-title md: grid grid-cols-2">
            {
                services.map(service => <Service
                key ={service.id}
