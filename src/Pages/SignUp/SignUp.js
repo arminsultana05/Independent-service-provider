@@ -62,7 +62,7 @@ const SignUp = () => {
       setUserInfo({ ...userInfo, confirmPass: e.target.value });
       setErrors({ ...errors, password: "" });
     } else {
-      setErrors({ ...errors, password: "Password's don't match" });
+      setErrors({ ...errors, password: "Password's don't match " });
       setUserInfo({ ...userInfo, confirmPass: "" });
     }
   };
@@ -101,7 +101,7 @@ const SignUp = () => {
           <div className='input-field'>
             <label htmlFor='email'>Email</label>
             <div className='input-wrapper'>
-              <input onBlur={handleEmailBlur} type='text' name='email' id='email' />
+              <input onBlur={handleEmailBlur} type='text' name='email' id='email' required />
             </div>
             {errors?.email && <p className="error-message"> <span className='mr-2'><AiOutlineExclamationCircle /></span>{errors.email}</p>}
           </div>
@@ -113,9 +113,10 @@ const SignUp = () => {
                 type='password'
                 name='password'
                 id='password'
+                required
               />
             </div>
-            {errors?.password && <p className="error-message"><AiOutlineExclamationCircle />{errors.password}</p>}
+            {errors?.password && <p className="error-message"><span className='mr-2'><AiOutlineExclamationCircle /></span> {errors.password}</p>}
           </div>
           <div className='input-field'>
             <label htmlFor='confirm-password'>Confirm Password</label>
@@ -125,6 +126,7 @@ const SignUp = () => {
                 type='password'
                 name='password'
                 id='password'
+                required
               />
             </div>
           </div>

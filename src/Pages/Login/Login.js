@@ -36,13 +36,13 @@ const Login = () => {
     }
   }
   const handlePasswordBlur = (e) => {
-    const passwordRegex = /.{6,}/;
+    const passwordRegex = /.{8,}/;
     const validPassword = passwordRegex.test(e.target.value);
     if (validPassword) {
       setUserInfo({ ...userInfo, password: e.target.value });
       setErrors({ ...errors, password: "" });
     } else {
-      setErrors({ ...errors, password: "Minimum 6 characters!" });
+      setErrors({ ...errors, password: "Minimum 8 characters!" });
       setUserInfo({ ...userInfo, password: "" })
     }
   }
@@ -86,7 +86,7 @@ const Login = () => {
             <label htmlFor='email'>Email</label>
             <div className='input-wrapper'>
               <input type='text' name='email' id='email'
-                onBlur={handleEmailBlur} />
+                onBlur={handleEmailBlur} required/>
             </div>
             {errors?.email && <p className="error-message"><span className='mr-2'><AiOutlineExclamationCircle /></span>{errors.email}</p>}
           </div>
@@ -98,7 +98,7 @@ const Login = () => {
                 type='password'
                 name='password'
                 id='password'
-              />
+              required/>
             </div>
             {errors?.password && <p className="error-message"><span className='mr-2'><AiOutlineExclamationCircle /></span>{errors.password}</p>}
           </div>
