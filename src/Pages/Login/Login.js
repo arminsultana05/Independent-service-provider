@@ -73,8 +73,13 @@ const Login = () => {
   }, [hookError, googleError])
 
   const resetPassword = async (event) => {
-    await sendPasswordResetEmail(userInfo.email);
-    toast('Sent email')
+      await sendPasswordResetEmail(userInfo.email);
+      if (userInfo.email){
+        toast('Sent email')
+      }else{
+        toast('please Enter the email address')
+      }
+     
 
   }
   return (
