@@ -1,12 +1,29 @@
-# Getting Started with Create React App
+# MONIKA LIFE CAREER COACH
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MONIKA KIFE CAREER COACH [Website Link](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+## Features of the project
+* Private routing uses Google and email authentication.
+* The user send reset password verification.
+* Login and Sign up form Authentication With react-firebase-hook.
+* If the user has to log in and sign up, then the user logOut Click SignOut Button
+* Clicking on any button on the homepage will take you to the check-out page.
+### Pages
+* Home Page
+* Check-Out
+* About
+* Blogs
+* Login $ SignUp
+* 404
+### Technologies
+* React Router
+* React
+* Tailwind CSS
+* Firebase Authentication 
+* React icon
+* Protected Route used
+* React Firebase hooks (Library)
+* React Toastify
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
