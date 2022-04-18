@@ -93,7 +93,7 @@
       position:absolute;
       display: block;
       width: 100%;
-     ;
+     background-color: #c44061;
       height: 50px;
       transition: all 0.3s ease-in;
     overflow-y:hidden;
