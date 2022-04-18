@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineExclamationCircle } from "react-icons/ai";
+import googleLogo from '../../images/googl.png'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from '../../firebase.init';
@@ -125,7 +126,7 @@ const Login = () => {
         </div>
         <div className='input-wrapper'>
           <button onClick={() => signInWithGoogle()} className='google-auth' >
-            <img alt='' />
+          <img src={googleLogo} alt="" />
             <p> Continue with Google </p>
           </button>
         </div>
