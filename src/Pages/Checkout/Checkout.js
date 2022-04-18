@@ -11,7 +11,7 @@ const Checkout = () => {
 
     return (
         <div className=' '>
-            <h1>Start your journey with these freebies!</h1>
+            <h1 className='text-center text-left text-4xl mt-4'>Start your journey with these freebies!!!</h1>
             <div className="check-outinfo">
             <div class="card w-96 bg-base-100 shadow-xl ">
                 <figure className="px-10 pt-10">
@@ -21,7 +21,7 @@ const Checkout = () => {
                     <h2 className="">Shhh... Yes! There's a secret to success</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">GEET ACCESS</button>
+                        <button className="button-banner">GEET ACCESS</button>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@ const Checkout = () => {
                     <h2 className="">Tips to create a positive radical shift</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">DOWNLOAD</button>
+                        <button className="button-banner">DOWNLOAD</button>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@ const Checkout = () => {
                     <h2 className="">Mindsets of successful people</h2>
                     <p>If a dog chews shoes whose shoes does he choose?</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">FREE GUIDE</button>
+                        <button className="button-banner">FREE GUIDE</button>
                     </div>
                 </div>
             </div>
@@ -54,14 +54,15 @@ const Checkout = () => {
                     <img src={img4} alt="Shoes" class="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <h2 className="">Do you have healthy habbits?</h2>
+                    <p></p>
                     <div class="card-actions">
-                        <button className="btn btn-primary">GET ACCESS</button>
+                        <button className="button-banner">GET ACCESS</button>
                     </div>
                 </div>
             </div>
             </div>
+            
         </div>
     );
 };

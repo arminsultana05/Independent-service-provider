@@ -19,7 +19,7 @@ const Service = ({ service }) => {
                 <div className="card-body items-center text-center cart-info ">
                      <small  className="">Name:{name}</small>
                     <p>Price: ${price}</p>
-                    <p> <small>{description}</small></p>
+                    <p> <small className="font-light">{description}</small></p>
                     <div className="card-actions">
                         <button onClick={()=>navigateToServiceDetail()} className='button-infg' >Buy Now</button>
                     </div>
