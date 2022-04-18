@@ -12,7 +12,6 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation()
   const from = location.state?.from?.pathname || "/";
-
   const [userInfo, setUserInfo] = useState({
     email: "",
     password: "",
@@ -24,14 +23,10 @@ const Login = () => {
   })
   const [signInWithEmail, user, loading, hookError] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
-  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
-    auth)
-
-
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
   const handleEmailBlur = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
-
     if (validEmail) {
       setUserInfo({ ...userInfo, email: e.target.value })
       setErrors({ ...errors, email: "" })
@@ -43,7 +38,6 @@ const Login = () => {
   const handlePasswordBlur = (e) => {
     const passwordRegex = /.{6,}/;
     const validPassword = passwordRegex.test(e.target.value);
-
     if (validPassword) {
       setUserInfo({ ...userInfo, password: e.target.value });
       setErrors({ ...errors, password: "" });
@@ -78,12 +72,11 @@ const Login = () => {
     }
   }, [hookError, googleError])
 
-  const resetPassword = async (event)=>{
+  const resetPassword = async (event) => {
     await sendPasswordResetEmail(userInfo.email);
     toast('Sent email')
-   
-   }
 
+  }
   return (
     <div className='auth-form-container '>
       <div className='auth-form'>
@@ -118,7 +111,7 @@ const Login = () => {
           New to Career Coach?{" "}
           <span onClick={() => navigate('/signup')}>Create New Account</span>
         </p>
-        <p className='redirect'>Forgate Password? <span className='ml-2 ' onClick={ resetPassword }>Reset password</span></p>
+        <p className='redirect'>Forgate Password? <span className='ml-2 ' onClick={resetPassword}>Reset password</span></p>
         <div className='horizontal-divider'>
           <div className='line-left' />
           <p>or</p>
@@ -126,7 +119,7 @@ const Login = () => {
         </div>
         <div className='input-wrapper'>
           <button onClick={() => signInWithGoogle()} className='google-auth' >
-          <img src={googleLogo} alt="" />
+            <img src={googleLogo} alt="" />
             <p> Continue with Google </p>
           </button>
         </div>

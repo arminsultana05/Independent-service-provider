@@ -28,8 +28,7 @@ const Blogs = () => {
                 <li>8.Cloud Messaging</li>
             </ul>
 
-            
-        </div>
+    </div>
     );
 };
 

@@ -22,15 +22,10 @@ const SignUp = () => {
   })
   const [createUserWithEmailAndPassword, user, loading, hookError] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
   const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
-  
-
-    const navigate = useNavigate();
-    const location = useLocation();
-
-    const from = location.state?.from?.pathname || "/";
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   useEffect(() => {
     if (user) {
       navigate(from);
@@ -50,14 +45,14 @@ const SignUp = () => {
 
   };
   const handlePasswordBlur = (e) => {
-    const passwordRegex = /.{6,}/;
+    const passwordRegex = /.{8,}/;
     const validPassword = passwordRegex.test(e.target.value);
 
     if (validPassword) {
       setUserInfo({ ...userInfo, password: e.target.value });
       setErrors({ ...errors, password: "" });
     } else {
-      setErrors({ ...errors, password: "Minimum 6 characters!" });
+      setErrors({ ...errors, password: "Minimum 8 characters!" });
       setUserInfo({ ...userInfo, password: "" });
     }
   };
@@ -71,10 +66,10 @@ const SignUp = () => {
       setUserInfo({ ...userInfo, confirmPass: "" });
     }
   };
-  const handleLogin =  (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-  createUserWithEmailAndPassword(userInfo.email, userInfo.password);
-    
+    createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+
   };
   if (user || googleUser) {
     navigate('/')
@@ -95,7 +90,7 @@ const SignUp = () => {
       }
     }
   }, [hookError, googleError])
-  
+
 
 
   return (
@@ -143,7 +138,6 @@ const SignUp = () => {
           Already have an account?{" "}
           <span onClick={() => navigate('/login')}>Login</span>
         </p>
-        
         <div className='horizontal-divider'>
           <div className='line-left' />
           <p>or</p>
