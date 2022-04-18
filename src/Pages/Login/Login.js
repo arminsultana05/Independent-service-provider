@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { toast, ToastContainer } from "react-toastify";
@@ -23,6 +23,9 @@ const Login = () => {
   })
   const [signInWithEmail, user, loading, hookError] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
+    auth)
+
 
   const handleEmailBlur = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
@@ -74,6 +77,12 @@ const Login = () => {
     }
   }, [hookError, googleError])
 
+  const resetPassword = async (event)=>{
+    await sendPasswordResetEmail(userInfo.email);
+    toast('Sent email')
+   
+   }
+
   return (
     <div className='auth-form-container '>
       <div className='auth-form'>
@@ -108,6 +117,7 @@ const Login = () => {
           New to Career Coach?{" "}
           <span onClick={() => navigate('/signup')}>Create New Account</span>
         </p>
+        <p className='redirect'>Forgate Password? <span className='ml-2 ' onClick={ resetPassword }>Reset password</span></p>
         <div className='horizontal-divider'>
           <div className='line-left' />
           <p>or</p>

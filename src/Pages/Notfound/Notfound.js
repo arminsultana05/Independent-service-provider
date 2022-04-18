@@ -1,5 +1,5 @@
 import React from 'react';
-import errorlogo from '../../images/banner_error_404.jpg'
+import errorlogo from '../../images/four2.jpg'
 import './Notfound.css'
 
 const Notfound = () => {
