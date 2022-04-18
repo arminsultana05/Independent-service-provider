@@ -67,7 +67,7 @@ const Feedback = () => {
                     </div>
                 </div>
             </div>
-            <div class="stats shadow mt-5">
+            <div class="stats shadow mt-5 review-tittle">
 
                 <div class="stat">
                     <div class="stat-figure text-primary">
