@@ -1,4 +1,4 @@
-import { getAuth } from 'firebase/auth';
+
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
@@ -12,7 +12,7 @@ const RequireAuth = ({ children }) => {
     const [user, loading, error] = useAuthState(auth);
     const location = useLocation();
     if (loading) {
-        return <p>Loading</p>
+        return <p className='text-center mt-5 mb-5'>Loading...</p>
     }
 
     if (user) {

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast, ToastContainer } from "react-toastify";
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import "react-toastify/dist/ReactToastify.css";
 import auth from '../../firebase.init';
+import './SignUp.css'
 
 const SignUp = () => {
     const [userInfo, setUserInfo] = useState({
@@ -18,6 +20,7 @@ const SignUp = () => {
     })
     const [createUserWithEmailAndPassword, user, loading, hookError] =
         useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
         const [signInWithGoogle, googleUser, loading2, googleError] = useSignInWithGoogle(auth);
         const navigate =useNavigate();
         const location = useLocation();
@@ -89,6 +92,7 @@ const SignUp = () => {
       }
   }, [hookError, googleError])
 
+
   
     return (
         <div className='auth-form-container '>
@@ -100,7 +104,7 @@ const SignUp = () => {
               <div className='input-wrapper'>
                 <input onBlur={ handleEmailBlur} type='text' name='email'  id='email' />
               </div>
-              {errors?.email && <p className="error-message">{errors.email}</p>}
+              {errors?.email && <p className="error-message"> <span className='mr-2'><AiOutlineExclamationCircle /></span>{errors.email}</p>}
             </div>
             <div className='input-field'>
               <label htmlFor='password'>Password</label>
@@ -112,8 +116,8 @@ const SignUp = () => {
                   id='password'
                 />
               </div>
-              {errors?.password && <p className="error-message">{errors.password}</p>}
-            </div>
+              {errors?.password && <p className="error-message"><span className='mr-2'><AiOutlineExclamationCircle /></span>{errors.password}</p> }
+              </div>
             <div className='input-field'>
               <label htmlFor='confirm-password'>Confirm Password</label>
               <div className='input-wrapper'>
